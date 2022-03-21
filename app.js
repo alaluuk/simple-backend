@@ -6,6 +6,7 @@ const exampleRouter=require('./routes/example')
 
 const app = express()
 dotenv.config();
+app.use(express.urlencoded({extended:false}));
 
 app.use('/book',bookRouter);
 app.use('/example',exampleRouter);

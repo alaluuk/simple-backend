@@ -34,8 +34,12 @@ router.get('/mydata/:fname?/:lname?',function(request, response){
     }
     else {
         response.send("Et antanut etunimeä");
-    }
-    
+    }    
+});
+
+router.post('/',function(request,response){
+    console.log(request.body.fname);
+    response.send(request.body);
 });
 
 module.exports = router;
