@@ -1,10 +1,13 @@
 const express = require('express')
 const dotenv=require('dotenv')
+const cors=require('cors');
 const bookRouter=require('./routes/book.js')
 const exampleRouter=require('./routes/example')
+const req = require('express/lib/request')
 
 
-const app = express()
+const app = express();
+app.use(cors());
 dotenv.config();
 app.use(express.urlencoded({extended:false}));
 
