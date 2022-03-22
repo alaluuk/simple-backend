@@ -20,17 +20,14 @@ router.get('/:id?',function(request,response){
 });
 
 router.post('/',function(request,response){
-    let sqldemo="insert into bookTable values(";
-    sqldemo+=request.body.id_book+","+request.body.name+","+request.body.author+");"
-    response.json(sqldemo);
+    let data=book.addBook(request.body);
+    response.json(data);
 });
 
 router.put('/:id',function(request,response){
     let id_book=request.params.id;
-    let name=request.body.name;
-    let author=request.body.author;
-    let sqldemo="update bookTable set name="+name+", author="+author+" WHERE id_book="+id_book;
-    response.json(sqldemo);
+    let data=book.updateBook(id_book,request.body);
+    response.send(data);
 });
 
 router.delete('/:id',function(request, response){
