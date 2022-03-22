@@ -1,14 +1,9 @@
 const { response } = require('express');
 const express=require('express');
-const req = require('express/lib/request');
+const book=require('../models/book_model');
 
 const router=express.Router();
 
-const bookTable=[
-    {"id_book":1, "name":'Python',"author":'Artem'},
-    {"id_book":2, "name":'JavaScript',"author":'Pekka'},
-    {"id_book":3, "name":'SQL',"author":'Hovi'}
-];
 
 router.get('/:id?',function(request,response){
     if(request.params.id){
@@ -17,7 +12,8 @@ router.get('/:id?',function(request,response){
         response.json(bookTable[id]);
     }
     else {
-        response.json(bookTable);
+        let data=book.getAllBooks();
+        response.json(data);
     }
 
 });
