@@ -7,6 +7,9 @@ const bookTable=[
 const book={
     getAllBooks:function(){
         return bookTable;
+    },
+    getOneBook:function(id){
+        return bookTable[id];
     }
 }
 

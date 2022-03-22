@@ -8,8 +8,9 @@ const router=express.Router();
 router.get('/:id?',function(request,response){
     if(request.params.id){
         let id=request.params.id-1;
-        console.log(bookTable[id]);
-        response.json(bookTable[id]);
+        let data=book.getOneBook(id);
+        console.log(data);
+        response.json(data);
     }
     else {
         let data=book.getAllBooks();
